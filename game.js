@@ -6,24 +6,24 @@ var MATCHES_TO_WIN = 4
 var gameOver = false
 
 function updateMatches(value, matches) {
-  return value === playerTurn ? (matches || 0) + 1 : 0
+  return value == playerTurn ? (matches || 0) + 1 : 0
 }
 
 var table = document.querySelector('table')
 table.addEventListener('click', function(e) {
-  if (gameOver || typeof e.target.cellIndex === "undefined") {
+  if (gameOver || typeof e.target.cellIndex == "undefined") {
     return
   }
   var colIndex = e.target.cellIndex
   var i, rowIndex
   // Drop into column
   for (i = ROWS - 1; i >= 0; i--) {
-    if (typeof grid[i][colIndex] === "undefined") {
+    if (typeof grid[i][colIndex] == "undefined") {
       rowIndex = i
       break
     }
   }
-  if (typeof rowIndex === "undefined") {
+  if (typeof rowIndex == "undefined") {
     return
   }
   // Keep track of latest move
@@ -41,7 +41,7 @@ table.addEventListener('click', function(e) {
       matchesDiagonal2 = updateMatches(grid[i][colIndex - rowIndex + i], matchesDiagonal2)
     }
     // Check win
-    if ([matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m === MATCHES_TO_WIN })) {
+    if ([matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m == MATCHES_TO_WIN })) {
       gameOver = true
     }
   }
