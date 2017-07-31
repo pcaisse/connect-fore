@@ -41,7 +41,7 @@ table.addEventListener('click', function(e) {
       matchesDiagonal2 = updateMatches(grid[i][colIndex - rowIndex + i], matchesDiagonal2)
     }
     // Check win
-    if (matchesHoriz === MATCHES_TO_WIN || matchesVert === MATCHES_TO_WIN || matchesDiagonal1 === MATCHES_TO_WIN || matchesDiagonal2 === MATCHES_TO_WIN) {
+    if ([matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m === MATCHES_TO_WIN })) {
       gameOver = true
     }
   }
