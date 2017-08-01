@@ -3,7 +3,7 @@ var grid = [[], [], [], [], [], []]
 var COLS = 7
 var ROWS = 6
 var MATCHES_TO_WIN = 4
-var gameOver = false
+var gameOver = 0
 
 function updateMatches(value, matches) {
   return value == playerTurn ? (matches || 0) + 1 : 0
@@ -41,7 +41,7 @@ document.querySelector('table').addEventListener('click', function(e) {
     }
     // Check win
     if ([matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m == MATCHES_TO_WIN })) {
-      gameOver = true
+      gameOver = 1
     }
   }
   if (gameOver) {
