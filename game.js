@@ -34,9 +34,7 @@ document.querySelector('table').addEventListener('click', function(e) {
       gameOver = 1
     }
   }
-  if (gameOver) {
-    console.log('WINNER!')
-  }
+  gameOver && console.log('WINNER!')
   // Switch turns
   playerTurn = +!playerTurn
   // Update board
