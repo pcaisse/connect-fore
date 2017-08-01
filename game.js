@@ -11,19 +11,19 @@ function updateMatches(value, matches) {
 
 var table = document.querySelector('table')
 table.addEventListener('click', function(e) {
-  if (gameOver || typeof e.target.cellIndex == "undefined") {
+  if (gameOver || e.target.cellIndex == void 0) {
     return
   }
   var colIndex = e.target.cellIndex
   var i, rowIndex
   // Drop into column
   for (i = ROWS - 1; i >= 0; i--) {
-    if (typeof grid[i][colIndex] == "undefined") {
+    if (grid[i][colIndex] == void 0) {
       rowIndex = i
       break
     }
   }
-  if (typeof rowIndex == "undefined") {
+  if (rowIndex == void 0) {
     return
   }
   // Keep track of latest move
