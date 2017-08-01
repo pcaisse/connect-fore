@@ -45,7 +45,7 @@ document.querySelector('table').addEventListener('click', function(e) {
     console.log('WINNER!')
   }
   // Switch turns
-  playerTurn = playerTurn ? 0 : 1
+  playerTurn = +!playerTurn
   // Update board
   this.rows[rowIndex].cells[colIndex].style.background = playerTurn ? "#ff0" : "red"
 })
