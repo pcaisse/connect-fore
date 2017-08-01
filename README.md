@@ -17,9 +17,10 @@ Gameplay is [as described here](https://en.wikipedia.org/wiki/Connect_Four#Gamep
 
 ## Implementation Requirements
 
-* Clicking on the game board will cause the disc to be dropped into that column
+* Clicking on the game board will cause the disc to be "dropped" into that column
 * Attempting to place a disc in a column that is full is ignored
 * Upon winning, the string 'WINNER!' must be logged to the console and no further moves can be made
 * No errors are thrown through normal gameplay
 * Must work on modern browsers (TODO: Define this more precisely)
 * No external libraries
+* Must conform to the ECMAScript 5 specification
