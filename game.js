@@ -10,13 +10,10 @@ document.querySelector('table').addEventListener('click', function(e) {
     return
   }
   // Drop into column
-  for (i = 5; i >= 0; i--) {
-    if (grid[i][colIndex] == void 0) {
-      rowIndex = i
-      break
-    }
-  }
-  if (rowIndex == void 0) {
+  rowIndex = 6
+  try {
+    while (grid[--rowIndex][colIndex] != void 0) {}
+  } catch (e) {
     return
   }
   // Keep track of latest move
