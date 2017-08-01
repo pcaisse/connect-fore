@@ -1,7 +1,7 @@
 var playerTurn = 0, grid = [[], [], [], [], [], []], gameOver = 0, i, colIndex, rowIndex, matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2
 
 function updateMatches(value, matches) {
-  return value == playerTurn ? (matches || 0) + 1 : 0
+  return value == playerTurn ? 1 + matches || 0 : 0
 }
 
 document.querySelector('table').addEventListener('click', function(e) {
