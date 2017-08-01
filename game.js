@@ -1,8 +1,5 @@
 var playerTurn = 0
 var grid = [[], [], [], [], [], []]
-var COLS = 7
-var ROWS = 6
-var MATCHES_TO_WIN = 4
 var gameOver = 0
 
 function updateMatches(value, matches) {
@@ -16,7 +13,7 @@ document.querySelector('table').addEventListener('click', function(e) {
   var colIndex = e.target.cellIndex
   var i, rowIndex
   // Drop into column
-  for (i = ROWS - 1; i >= 0; i--) {
+  for (i = 5; i >= 0; i--) {
     if (grid[i][colIndex] == void 0) {
       rowIndex = i
       break
@@ -29,10 +26,10 @@ document.querySelector('table').addEventListener('click', function(e) {
   grid[rowIndex][colIndex] = playerTurn
   // Count matches
   var matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2
-  for (i = 0; i < COLS; i++) {
+  for (i = 0; i < 7; i++) {
     // Horizontal matches
     matchesHoriz = updateMatches(grid[rowIndex][i], matchesHoriz)
-    if (i < ROWS) {
+    if (i < 6) {
       // Vertical matches
       matchesVert = updateMatches(grid[i][colIndex], matchesVert)
       // Diagonal matches
@@ -40,7 +37,7 @@ document.querySelector('table').addEventListener('click', function(e) {
       matchesDiagonal2 = updateMatches(grid[i][colIndex - rowIndex + i], matchesDiagonal2)
     }
     // Check win
-    if ([matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m == MATCHES_TO_WIN })) {
+    if ([matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m == 4 })) {
       gameOver = 1
     }
   }
