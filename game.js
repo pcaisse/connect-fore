@@ -51,5 +51,5 @@ table.addEventListener('click', function(e) {
   // Switch turns
   playerTurn = playerTurn ? 0 : 1
   // Update board
-  table.rows[rowIndex].cells[colIndex].style.backgroundColor = playerTurn ? "yellow" : "red"
+  table.rows[rowIndex].cells[colIndex].style.background = playerTurn ? "#ff0" : "red"
 })
