@@ -6,12 +6,12 @@ function updateMatches(value, matches) {
 
 document.querySelector('table').addEventListener('click', function(e) {
   colIndex = e.target.cellIndex
-  if (gameOver || colIndex == void 0) {
-    return
-  }
-  // Drop into column
-  rowIndex = 6
   try {
+    if (gameOver || colIndex == void 0) {
+      z
+    }
+    // Drop into column
+    rowIndex = 6
     while (grid[--rowIndex][colIndex] != void 0) {}
   } catch (e) {
     return
