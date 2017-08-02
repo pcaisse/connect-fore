@@ -30,7 +30,7 @@ document.querySelector('table').addEventListener('click', function(e) {
       matchesDiagonal2 = updateMatches(grid[i][colIndex - rowIndex + i], matchesDiagonal2)
     }
     // Check win
-    if ([matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m == 4 })) {
+    if ([matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m > 3 })) {
       gameOver = 1
     }
   }
