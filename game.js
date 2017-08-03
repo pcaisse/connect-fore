@@ -1,6 +1,6 @@
 var playerTurn = 0, grid = [[], [], [], [], [], []], gameOver = 0, i, colIndex, rowIndex, matchesHoriz = matchesVert = matchesDiagonal1 = matchesDiagonal2 = 0
 
-document.querySelector('table').addEventListener('click', function(e) {
+document.body.children[0].addEventListener('click', function(e) {
   colIndex = e.target.cellIndex
   try {
     (gameOver || colIndex == void 0) && z
