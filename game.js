@@ -1,12 +1,12 @@
-var playerTurn = 0, grid = [[], [], [], [], [], []], gameOver = 0, i, colIndex, rowIndex, matchesHoriz = matchesVert = matchesDiagonal1 = matchesDiagonal2 = 0
+var playerTurn = 0, grid = [[], [], [], [], [], []], gameOver = 0, i, colIndex, rowIndex, matchesHoriz = matchesVert = matchesDiagonal1 = matchesDiagonal2 = 0, v = void 0
 
 document.body.children[0].addEventListener('click', function(e) {
   colIndex = e.target.cellIndex
   try {
-    (gameOver || colIndex == void 0) && z
+    (gameOver || colIndex == v) && z
     // Drop into column
     rowIndex = 6
-    while (grid[--rowIndex][colIndex] != void 0) {}
+    while (grid[--rowIndex][colIndex] != v) {}
   } catch (e) {
     return
   }
