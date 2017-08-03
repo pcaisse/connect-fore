@@ -1,0 +1,16 @@
+{
+  "name": "connect-fore",
+  "version": "0.0.1",
+  "scripts": {
+    "char-count": "wc -m game.js",
+    "char-count-min": "uglifyjs --compress -- game.js | wc -m"
+  },
+  "description": "Code golf in JS",
+  "main": "game.js",
+  "repository": "https://github.com/pcaisse/connect-fore.git",
+  "author": "Peter Caisse <pcaisse@gmail.com>",
+  "license": "GPLV3",
+  "dependencies": {
+    "uglifyjs": "^2.4.11"
+  }
+}
