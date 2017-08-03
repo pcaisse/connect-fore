@@ -24,7 +24,7 @@ document.querySelector('table').addEventListener('click', function(e) {
       matchesDiagonal2 = playerTurn == grid[i][colIndex - rowIndex + i] && matchesDiagonal2 + 1 || 0
     }
     // Check win
-    [matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m > 3 }) && gameOver++
+    Math.max(matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2) > 3 && gameOver++
   }
   gameOver && console.log('WINNER!')
   // Switch turns
