@@ -1,8 +1,4 @@
-var playerTurn = 0, grid = [[], [], [], [], [], []], gameOver = 0, i, colIndex, rowIndex, matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2
-
-function updateMatches(value, matches) {
-  return value == playerTurn ? 1 + matches || 0 : 0
-}
+var playerTurn = 0, grid = [[], [], [], [], [], []], gameOver = 0, i, colIndex, rowIndex, matchesHoriz = matchesVert = matchesDiagonal1 = matchesDiagonal2 = 0
 
 document.querySelector('table').addEventListener('click', function(e) {
   colIndex = e.target.cellIndex
@@ -19,13 +15,13 @@ document.querySelector('table').addEventListener('click', function(e) {
   // Count matches
   for (i = 0; i < 7; i++) {
     // Horizontal matches
-    matchesHoriz = updateMatches(grid[rowIndex][i], matchesHoriz)
+    matchesHoriz = playerTurn == grid[rowIndex][i] && matchesHoriz + 1 || 0
     if (i < 6) {
       // Vertical matches
-      matchesVert = updateMatches(grid[i][colIndex], matchesVert)
+      matchesVert = playerTurn == grid[i][colIndex] && matchesVert + 1 || 0
       // Diagonal matches
-      matchesDiagonal1 = updateMatches(grid[i][colIndex + rowIndex - i], matchesDiagonal1)
-      matchesDiagonal2 = updateMatches(grid[i][colIndex - rowIndex + i], matchesDiagonal2)
+      matchesDiagonal1 = playerTurn == grid[i][colIndex + rowIndex - i] && matchesDiagonal1 + 1 || 0
+      matchesDiagonal2 = playerTurn == grid[i][colIndex - rowIndex + i] && matchesDiagonal2 + 1 || 0
     }
     // Check win
     [matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m > 3 }) && gameOver++
