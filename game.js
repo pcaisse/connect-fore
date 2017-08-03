@@ -7,9 +7,7 @@ function updateMatches(value, matches) {
 document.querySelector('table').addEventListener('click', function(e) {
   colIndex = e.target.cellIndex
   try {
-    if (gameOver || colIndex == void 0) {
-      z
-    }
+    (gameOver || colIndex == void 0) && z
     // Drop into column
     rowIndex = 6
     while (grid[--rowIndex][colIndex] != void 0) {}
@@ -30,9 +28,7 @@ document.querySelector('table').addEventListener('click', function(e) {
       matchesDiagonal2 = updateMatches(grid[i][colIndex - rowIndex + i], matchesDiagonal2)
     }
     // Check win
-    if ([matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m > 3 })) {
-      gameOver = 1
-    }
+    [matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2].some(function(m) { return m > 3 }) && gameOver++
   }
   gameOver && console.log('WINNER!')
   // Switch turns
