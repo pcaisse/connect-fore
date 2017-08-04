@@ -3,14 +3,21 @@
   "version": "0.0.1",
   "scripts": {
     "char-count": "wc -m game.js",
-    "char-count-min": "uglifyjs --compress -- game.js | wc -m"
+    "char-count-min": "uglifyjs --compress -- game.js | wc -m",
+    "start": "node bin/run.js",
+    "test": "mocha"
   },
   "description": "Code golf in JS",
   "main": "game.js",
   "repository": "https://github.com/pcaisse/connect-fore.git",
   "author": "Peter Caisse <pcaisse@gmail.com>",
-  "license": "GPLV3",
+  "license": "GPL-3.0",
   "dependencies": {
+    "express": "^4.15.3",
     "uglifyjs": "^2.4.11"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.0",
+    "nightmare": "^2.10.0"
   }
 }
