@@ -2,8 +2,9 @@
   "name": "connect-fore",
   "version": "0.0.1",
   "scripts": {
-    "char-count": "wc -m game.js",
+    "char-count": "wc -m static/game.js",
     "char-count-min": "uglifyjs --compress -- static/game.js | wc -m",
+    "compare-counts": "bash bin/issmaller.sh",
     "start": "node bin/run.js",
     "test": "mocha"
   },
