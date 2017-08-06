@@ -13,7 +13,7 @@ document.body.children[0].addEventListener('click', function(e) {
   // Keep track of latest move
   grid[rowIndex][colIndex] = playerTurn
   // Count matches
-  for (i = 0; i < 7; i++) {
+  for (i = 7; i--;) {
     // Horizontal matches
     matchesHoriz = playerTurn == grid[rowIndex][i] ? matchesHoriz + 1 : 0
     if (i < 6) {
