@@ -1,4 +1,4 @@
-var playerTurn = 0, grid = [[], [], [], [], [], []], gameOver = 0, i, colIndex, rowIndex, matchesHoriz = matchesVert = matchesDiagonal1 = matchesDiagonal2 = 0
+var grid = [[], [], [], [], [], []], i, colIndex, rowIndex, playerTurn = gameOver = matchesHoriz = matchesVert = matchesDiagonal1 = matchesDiagonal2 = 0
 
 document.body.children[0].addEventListener('click', function(e) {
   colIndex = e.target.cellIndex
