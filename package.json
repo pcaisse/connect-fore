@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "char-count": "wc -m static/game.js",
-    "char-count-min": "uglifyjs --compress -- static/game.js | wc -m",
+    "char-count-min": "uglifyjs --compress --mangle -- static/game.js | wc -m",
     "compare-counts": "bash bin/issmaller.sh",
     "start": "node bin/run.js",
     "test": "mocha"
@@ -14,11 +14,11 @@
   "author": "Peter Caisse <pcaisse@gmail.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "express": "^4.15.3",
-    "uglifyjs": "^2.4.11"
+    "express": "^4.15.3"
   },
   "devDependencies": {
     "mocha": "^3.5.0",
-    "nightmare": "^2.10.0"
+    "nightmare": "^2.10.0",
+    "uglify-js": "^3.0.27"
   }
 }
