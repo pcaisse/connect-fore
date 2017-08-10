@@ -12,9 +12,9 @@ document.body.children[0].addEventListener('click', function(e) {
       grid[rowIndex][colIndex] = playerTurn
       // Count matches
       gridString = ''
-      for (i = 0; i < 42; i++) {
-        value = grid[~~(i / 7)][i % 7]
-        gridString += value || " "
+      for (i = 42; i--;) {
+        value = grid[~~(i / 7)][i % 7] || " "
+        gridString = value + gridString
       }
       /(\d)(\1{3}|(.{6}\1){3}|(.{7}\1){3}|(.{5}\1){3})/.exec(gridString) && ++gameOver && console.log('WINNER!')
       // Update board
