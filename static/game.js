@@ -1,10 +1,6 @@
-var grid = [[], [], [], [], [], []], i, colIndex, rowIndex
+var grid = [[], [], [], [], [], []], i, colIndex, rowIndex, gridString, value
 var playerTurn = 0
 var gameOver = 0
-var matchesHoriz = 0
-var matchesVert = 0
-var matchesDiagonal1 = 0
-var matchesDiagonal2 = 0
 
 document.body.children[0].addEventListener('click', function(e) {
   colIndex = e.target.cellIndex
@@ -17,20 +13,12 @@ document.body.children[0].addEventListener('click', function(e) {
       // Keep track of latest move
       grid[rowIndex][colIndex] = playerTurn
       // Count matches
-      for (i = 7; i--;) {
-        // Horizontal matches
-        matchesHoriz = playerTurn == grid[rowIndex][i] ? matchesHoriz + 1 : 0
-        if (i < 6) {
-          // Vertical matches
-          matchesVert = playerTurn == grid[i][colIndex] ? matchesVert + 1 : 0
-          // Diagonal matches
-          matchesDiagonal1 = playerTurn == grid[i][colIndex + rowIndex - i] ? matchesDiagonal1 + 1 : 0
-          matchesDiagonal2 = playerTurn == grid[i][colIndex - rowIndex + i] ? matchesDiagonal2 + 1 : 0
-        }
-        // Check win
-        Math.max(matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2) > 3 && gameOver++
+      gridString = ''
+      for (i = 0; i < 42; i++) {
+        value = grid[~~(i / 7)][i % 7]
+        gridString += +(value + 1) ? value : " "
       }
-      gameOver && console.log('WINNER!')
+      /(\d)(\1{3}|(.{6}\1){3}|(.{7}\1){3}|(.{5}\1){3})/.exec(gridString) && ++gameOver && console.log('WINNER!')
       // Switch turns
       playerTurn = +!playerTurn
       // Update board
