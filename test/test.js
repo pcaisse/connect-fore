@@ -162,6 +162,77 @@ describe('ui tests', function() {
         done()
       })
   })
+  it('test diagonal win', function(done) {
+    new Nightmare()
+      .on('console', function(log, msg) {
+        logValue = msg
+      })
+      .goto(url)
+      .click('table tr:nth-child(6) td:nth-child(3)')
+      .click('table tr:nth-child(6) td:nth-child(4)')
+      .click('table tr:nth-child(6) td:nth-child(4)')
+      .click('table tr:nth-child(6) td:nth-child(5)')
+      .click('table tr:nth-child(6) td:nth-child(6)')
+      .click('table tr:nth-child(6) td:nth-child(5)')
+      .click('table tr:nth-child(6) td:nth-child(5)')
+      .click('table tr:nth-child(6) td:nth-child(6)')
+      .click('table tr:nth-child(6) td:nth-child(7)')
+      .click('table tr:nth-child(6) td:nth-child(6)')
+      .click('table tr:nth-child(6) td:nth-child(6)')
+      .wait(100)
+      .evaluate(function() {
+        return {
+          player1CellBgColors: [
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(6) td:nth-child(3)')
+            ).getPropertyValue("background-color"),
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(5) td:nth-child(4)')
+            ).getPropertyValue("background-color"),
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(4) td:nth-child(5)')
+            ).getPropertyValue("background-color"),
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(3) td:nth-child(6)')
+            ).getPropertyValue("background-color"),
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(6) td:nth-child(6)')
+            ).getPropertyValue("background-color"),
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(6) td:nth-child(7)')
+            ).getPropertyValue("background-color")
+          ],
+          player2CellBgColors: [
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(6) td:nth-child(4)')
+            ).getPropertyValue("background-color"),
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(6) td:nth-child(5)')
+            ).getPropertyValue("background-color"),
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(5) td:nth-child(5)')
+            ).getPropertyValue("background-color"),
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(5) td:nth-child(6)')
+            ).getPropertyValue("background-color"),
+            window.getComputedStyle(
+              document.querySelector('table tr:nth-child(4) td:nth-child(6)')
+            ).getPropertyValue("background-color")
+          ]
+        }
+      })
+      .end()
+      .then(function(result) {
+        assert(result.player1CellBgColors.every(function(bgColor) {
+          return bgColor === YELLOW
+        }))
+        assert(result.player2CellBgColors.every(function(bgColor) {
+          return bgColor === RED
+        }))
+        assert(logValue === WINNER)
+        done()
+      })
+  })
   it('test dropping of discs', function(done) {
     // Players 1 and 2 drop both discs in the same column.
     // Discs should fill up in alternating colors and not
