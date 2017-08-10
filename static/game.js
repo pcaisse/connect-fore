@@ -1,4 +1,4 @@
-var grid = [[], [], [], [], [], []], i, colIndex, rowIndex, gridString, value, playerTurn = 1, gameOver = 0
+var grid = [[], [], [], [], [], []], i, colIndex, rowIndex, gridString, playerTurn = 1, gameOver = 0
 
 document.body.children[0].addEventListener('click', function(e) {
   colIndex = e.target.cellIndex
@@ -13,8 +13,7 @@ document.body.children[0].addEventListener('click', function(e) {
       // Count matches
       gridString = ''
       for (i = 42; i--;) {
-        value = grid[~~(i / 7)][i % 7] || " "
-        gridString = value + gridString
+        gridString = (grid[~~(i / 7)][i % 7] || " ") + gridString
       }
       /(\d)(\1{3}|(.{6}\1){3}|(.{7}\1){3}|(.{5}\1){3})/.exec(gridString) && ++gameOver && console.log('WINNER!')
       // Update board
