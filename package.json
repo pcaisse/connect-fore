@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "char-count": "wc -m static/game.js",
-    "char-count-min": "uglifyjs --compress --mangle -- static/game.js | wc -m",
+    "char-count-min": "uglifyjs --compress --mangle toplevel=true -- static/game.js | wc -m",
     "compare-counts": "bash bin/issmaller.sh",
     "start": "node bin/run.js",
     "test": "mocha"
