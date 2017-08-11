@@ -17,6 +17,16 @@ describe('ui tests', function() {
   before(function() {
     env = Object.assign({}, process.env, {PORT: PORT})
     child = spawn('node', ['index.js'], {env})
+    const ls = spawn('ls', ['-lh', '/usr']);
+
+    child.stdout.on('data', function(data) {
+      console.log('stdout: ' + data)
+    })
+
+    child.stderr.on('data', function(data) {
+      console.log('stderr: ' + data)
+    })
+
     url = 'http://localhost:' + PORT
   })
   after(function() {
