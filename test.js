@@ -31,6 +31,24 @@ describe('ui tests', function() {
   after(function() {
     child.kill()
   })
+  it('test player 1 is yellow', function(done) {
+    // Player 1's disc is yellow and drops to last free cell in column
+    new Nightmare()
+      .goto(url)
+      .click('table tr:nth-child(2) td:nth-child(4)')
+      .wait(10)
+      .evaluate(function() {
+        return window.getComputedStyle(
+          document.querySelector('table tr:nth-child(6) td:nth-child(4)')
+        ).getPropertyValue("background-color")
+      })
+      .end()
+      .then(function(color) {
+        console.log('result of disc dropping', color)
+        assert(color === YELLOW)
+        done()
+      })
+  })
   it('test disc dropping and colors', function(done) {
     // Player 1's disc is yellow and drops to last free cell in column
     // Player 2's disc is red and when played in same column drops on top
