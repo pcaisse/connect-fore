@@ -5,8 +5,8 @@
     "char-count": "wc -m static/game.js",
     "char-count-min": "uglifyjs --compress --mangle toplevel=true -- static/game.js | wc -m",
     "compare-counts": "bash bin/issmaller.sh",
-    "start": "gulp build && node bin/run.js",
-    "debug": "gulp dev && node bin/run.js",
+    "start": "gulp build && node index.js",
+    "debug": "gulp dev && node index.js",
     "test": "mocha"
   },
   "description": "Code golf in JS",

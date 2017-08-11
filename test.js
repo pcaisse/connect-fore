@@ -1,9 +1,7 @@
+const { spawn } = require('child_process')
 var assert = require('assert')
 var express = require('express')
 var Nightmare = require('nightmare')
-
-var start = require('../lib/start')
-
 
 var YELLOW = "rgb(255, 255, 0)"
 var RED = "rgb(255, 0, 0)"
@@ -11,18 +9,18 @@ var WINNER = "WINNER!"
 
 
 describe('ui tests', function() {
-  var port = 3001
-  var server, url
-  var logValue
+  var PORT = 3001
+  var url, logValue
   beforeEach(function() {
     logValue = ''
   })
   before(function() {
-    server = start(port)
-    url = 'http://localhost:' + port
+    env = Object.assign({}, process.env, {PORT: PORT})
+    child = spawn('node', ['index.js'], {env})
+    url = 'http://localhost:' + PORT
   })
   after(function() {
-    server.close()
+    child.kill()
   })
   it('test disc dropping and colors', function(done) {
     // Player 1's disc is yellow and drops to last free cell in column
