@@ -12,7 +12,7 @@
     "deploy": "yarn install && yarn start",
     "start": "gulp build && node index.js",
     "debug": "gulp dev && node index.js",
-    "test": "mocha"
+    "test": "gulp dev && mocha"
   },
   "description": "Code golf in JS",
   "main": "game.js",

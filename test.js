@@ -44,7 +44,6 @@ describe('ui tests', function() {
       })
       .end()
       .then(function(color) {
-        console.log('result of disc dropping', color)
         assert(color === YELLOW)
         done()
       })
@@ -69,7 +68,6 @@ describe('ui tests', function() {
       })
       .end()
       .then(function(result) {
-        console.log('result of disc dropping', result)
         assert(result.player1CellBgColor === YELLOW)
         assert(result.player2CellBgColor === RED)
         done()
