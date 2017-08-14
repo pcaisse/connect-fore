@@ -9,13 +9,16 @@ var WINNER = "WINNER!"
 
 
 describe('ui tests', function() {
-  var PORT = 3001
-  var url, logValue
+  var port = process.env.PORT || 3001
+  var url = 'http://localhost:' + port
+  var logValue
+
   beforeEach(function() {
     logValue = ''
   })
+
   before(function() {
-    env = Object.assign({}, process.env, {PORT: PORT})
+    env = Object.assign({}, process.env, {PORT: port})
     child = spawn('node', ['index.js'], {env})
 
     child.stdout.on('data', function(data) {
@@ -25,12 +28,12 @@ describe('ui tests', function() {
     child.stderr.on('data', function(data) {
       console.log('stderr: ' + data)
     })
-
-    url = 'http://localhost:' + PORT
   })
+
   after(function() {
     child.kill()
   })
+
   it('test player 1 is yellow', function(done) {
     // Player 1's disc is yellow and drops to last free cell in column
     new Nightmare()
@@ -48,6 +51,7 @@ describe('ui tests', function() {
         done()
       })
   })
+
   it('test disc dropping and colors', function(done) {
     // Player 1's disc is yellow and drops to last free cell in column
     // Player 2's disc is red and when played in same column drops on top
@@ -73,6 +77,7 @@ describe('ui tests', function() {
         done()
       })
   })
+
   it('test vertical win', function(done) {
     // Player 1 drops all discs in first column
     // Player 2 drops all discs in second column
@@ -130,6 +135,7 @@ describe('ui tests', function() {
         done()
       })
   })
+
   it('test horizontal win', function(done) {
     // Players 1 and 2 drop both discs straight across columns
     new Nightmare()
@@ -186,6 +192,7 @@ describe('ui tests', function() {
         done()
       })
   })
+
   it('test diagonal win (bottom left to top right)', function(done) {
     new Nightmare()
       .on('console', function(log, msg) {
@@ -257,6 +264,7 @@ describe('ui tests', function() {
         done()
       })
   })
+
   it('test diagonal win (top left to bottom right)', function(done) {
     new Nightmare()
       .on('console', function(log, msg) {
@@ -328,6 +336,7 @@ describe('ui tests', function() {
         done()
       })
   })
+
   it('test dropping of discs', function(done) {
     // Players 1 and 2 drop both discs in the same column.
     // Discs should fill up in alternating colors and not
