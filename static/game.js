@@ -1,6 +1,6 @@
 var grid = [[], [], [], [], [], []], i, colIndex, rowIndex, gridString, playerTurn = 1, gameOver = 0
 
-document.body.children[0].addEventListener('click', function(e) {
+document.body.children[0].onclick = function(e) {
   colIndex = e.target.cellIndex
   if (!gameOver && +(colIndex + 1)) {
     // Drop into column
@@ -22,4 +22,4 @@ document.body.children[0].addEventListener('click', function(e) {
       playerTurn = playerTurn > 1 ? 1 : 2
     }
   }
-})
+}
