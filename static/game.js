@@ -2,7 +2,7 @@ var grid = [[], [], [], [], [], []], i, colIndex, rowIndex, gridString, playerTu
 
 document.body.children[0].onclick = function(e) {
   colIndex = e.target.cellIndex
-  if (!gameOver && +(colIndex + 1)) {
+  if (!gameOver && colIndex + 1) {
     // Drop into column
     rowIndex = 6
     while (grid[--rowIndex] && grid[rowIndex][colIndex]);
