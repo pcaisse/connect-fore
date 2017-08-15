@@ -1,4 +1,4 @@
-var grid = [[], [], [], [], [], []], playerTurn = 1, gameOver = 0
+grid = [[], [], [], [], [], []], playerTurn = 1, gameOver = 0
 
 document.body.children[0].onclick = function(e) {
   colIndex = e.target.cellIndex
