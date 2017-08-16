@@ -1,4 +1,8 @@
+[![Build Status](https://travis-ci.org/pcaisse/connect-fore.svg?branch=master)](https://travis-ci.org/pcaisse/connect-fore)
+
 # Connect "Fore!" 🏌
+
+http://connect-fore.herokuapp.com/
 
 ## Challenge
 
