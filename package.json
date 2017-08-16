@@ -7,14 +7,16 @@
   },
   "scripts": {
     "char-count": "wc -m static/game.js",
-    "char-count-min": "uglifyjs --compress --mangle toplevel=true -- static/game.js | wc -m",
+    "char-count-min": "yarn minify | wc -m",
+    "minify": "uglifyjs --compress --mangle toplevel=true -- static/game.js",
+    "beautify": "uglifyjs --beautify -- static/game.js",
     "compare-counts": "bash bin/issmaller.sh",
     "deploy": "yarn install && yarn start",
     "start": "gulp build && node index.js",
-    "debug": "gulp dev && node index.js",
+    "debug": "gulp build-dev && node index.js",
     "build": "gulp build",
-    "build-dev": "gulp dev",
-    "test": "gulp dev && mocha"
+    "build-dev": "gulp build-dev",
+    "test": "gulp build && mocha && yarn compare-counts"
   },
   "description": "Code golf in JS",
   "main": "game.js",
