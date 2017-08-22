@@ -392,4 +392,49 @@ describe('ui tests', function() {
         done()
       })
   })
+
+  it('test that three-in-a-row is not a win', function(done) {
+    // Players 1 and 2 drop both discs straight across columns
+    new Nightmare()
+      .on('console', function(log, msg) {
+        logValue = msg
+      })
+      .goto(url)
+      .click('table tr:nth-child(1) td:nth-child(1)')
+      .click('table tr:nth-child(1) td:nth-child(1)')
+      .click('table tr:nth-child(1) td:nth-child(2)')
+      .click('table tr:nth-child(1) td:nth-child(2)')
+      .click('table tr:nth-child(1) td:nth-child(3)')
+      .wait(100)
+      .end()
+      .then(function(result) {
+        assert(logValue !== WINNER)
+        done()
+      })
+  })
+
+  it('test that five-in-a-row (more than four) is still a win', function(done) {
+    // Players 1 and 2 drop both discs straight across columns
+    new Nightmare()
+      .on('console', function(log, msg) {
+        logValue = msg
+      })
+      .goto(url)
+      .click('table tr:nth-child(1) td:nth-child(1)')
+      .click('table tr:nth-child(1) td:nth-child(1)')
+      .click('table tr:nth-child(1) td:nth-child(2)')
+      .click('table tr:nth-child(1) td:nth-child(2)')
+      .click('table tr:nth-child(1) td:nth-child(4)')
+      .click('table tr:nth-child(1) td:nth-child(4)')
+      .click('table tr:nth-child(1) td:nth-child(5)')
+      .click('table tr:nth-child(1) td:nth-child(5)')
+      .click('table tr:nth-child(1) td:nth-child(3)')
+      .wait(100)
+      .end()
+      .then(function(result) {
+        assert(logValue === WINNER)
+        done()
+      })
+  })
+
 })
