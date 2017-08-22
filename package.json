@@ -8,6 +8,7 @@
   "scripts": {
     "char-count": "wc -m static/game.js",
     "char-count-min": "uglifyjs --compress --mangle toplevel=true -- static/game.js | wc -m",
+    "minify": "uglifyjs --compress --mangle toplevel=true -- static/game.js",
     "beautify": "uglifyjs --beautify -- static/game.js",
     "compare-counts": "bash bin/issmaller.sh",
     "deploy": "yarn install && yarn start",

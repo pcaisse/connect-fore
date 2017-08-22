@@ -83,7 +83,7 @@ describe('ui tests', function() {
     // Player 2 drops all discs in second column
     new Nightmare()
       .on('console', function(log, msg) {
-        logValue = msg
+        logValue += msg
       })
       .goto(url)
       .click('table tr:nth-child(1) td:nth-child(1)')
@@ -140,7 +140,7 @@ describe('ui tests', function() {
     // Players 1 and 2 drop both discs straight across columns
     new Nightmare()
       .on('console', function(log, msg) {
-        logValue = msg
+        logValue += msg
       })
       .goto(url)
       .click('table tr:nth-child(1) td:nth-child(1)')
@@ -196,7 +196,7 @@ describe('ui tests', function() {
   it('test diagonal win (bottom left to top right)', function(done) {
     new Nightmare()
       .on('console', function(log, msg) {
-        logValue = msg
+        logValue += msg
       })
       .goto(url)
       .click('table tr:nth-child(6) td:nth-child(3)')
@@ -268,7 +268,7 @@ describe('ui tests', function() {
   it('test diagonal win (top left to bottom right)', function(done) {
     new Nightmare()
       .on('console', function(log, msg) {
-        logValue = msg
+        logValue += msg
       })
       .goto(url)
       .click('table tr:nth-child(6) td:nth-child(7)')
@@ -343,7 +343,7 @@ describe('ui tests', function() {
     // change from extra clicks once full.
     new Nightmare()
       .on('console', function(log, msg) {
-        logValue = msg
+        logValue += msg
       })
       .goto(url)
       .click('table tr:nth-child(3) td:nth-child(3)')
@@ -397,7 +397,7 @@ describe('ui tests', function() {
     // Players 1 and 2 drop both discs straight across columns
     new Nightmare()
       .on('console', function(log, msg) {
-        logValue = msg
+        logValue += msg
       })
       .goto(url)
       .click('table tr:nth-child(1) td:nth-child(1)')
@@ -417,7 +417,7 @@ describe('ui tests', function() {
     // Players 1 and 2 drop both discs straight across columns
     new Nightmare()
       .on('console', function(log, msg) {
-        logValue = msg
+        logValue += msg
       })
       .goto(url)
       .click('table tr:nth-child(1) td:nth-child(1)')
