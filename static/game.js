@@ -6,8 +6,7 @@ function updateMatches(value, matches) {
   return value == playerTurn ? (matches || 0) + 1 : 0
 }
 
-var table = document.querySelector('table')
-table.addEventListener('click', function(e) {
+document.body.children[0].onclick = function(e) {
   var colIndex = e.target.cellIndex
   if (gameOver || colIndex == void 0) {
     return
@@ -51,8 +50,8 @@ table.addEventListener('click', function(e) {
     console.log('WINNER!')
   }
   // Update board
-  table.rows[rowIndex].cells[colIndex].style.backgroundColor =
-    playerTurn ? "red" : "yellow"
+  this.rows[rowIndex].cells[colIndex].style.background =
+    playerTurn ? "red" : "#ff0"
   // Switch turns
   playerTurn = playerTurn ? 0 : 1
-})
+}
