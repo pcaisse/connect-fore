@@ -9,18 +9,18 @@ function updateMatches(value, matches) {
 var table = document.querySelector('table')
 table.addEventListener('click', function(e) {
   var colIndex = e.target.cellIndex
-  if (gameOver || typeof colIndex == "undefined") {
+  if (gameOver || colIndex == void 0) {
     return
   }
   // Drop into column
   var i, rowIndex
   for (i = 5; i >= 0; i--) {
-    if (typeof grid[i][colIndex] == "undefined") {
+    if (grid[i][colIndex] == void 0) {
       rowIndex = i
       break
     }
   }
-  if (typeof rowIndex == "undefined") {
+  if (rowIndex == void 0) {
     return
   }
   // Keep track of latest move
