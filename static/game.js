@@ -1,7 +1,3 @@
-var COLS = 7
-var ROWS = 6
-var MATCHES_TO_WIN = 4
-
 var playerTurn = 0
 var grid = [[], [], [], [], [], []]
 var gameOver = false
@@ -18,7 +14,7 @@ table.addEventListener('click', function(e) {
   }
   // Drop into column
   var i, rowIndex
-  for (i = ROWS - 1; i >= 0; i--) {
+  for (i = 5; i >= 0; i--) {
     if (typeof grid[i][colIndex] === "undefined") {
       rowIndex = i
       break
@@ -31,10 +27,10 @@ table.addEventListener('click', function(e) {
   grid[rowIndex][colIndex] = playerTurn
   // Count matches
   var matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2
-  for (i = 0; i < COLS; i++) {
+  for (i = 0; i < 7; i++) {
     // Horizontal matches
     matchesHoriz = updateMatches(grid[rowIndex][i], matchesHoriz)
-    if (i < ROWS) {
+    if (i < 6) {
       // Vertical matches
       matchesVert = updateMatches(grid[i][colIndex], matchesVert)
       // Diagonal matches
@@ -44,10 +40,10 @@ table.addEventListener('click', function(e) {
         grid[i][colIndex - rowIndex + i], matchesDiagonal2)
     }
     // Check win
-    if (matchesHoriz >= MATCHES_TO_WIN ||
-        matchesVert >= MATCHES_TO_WIN ||
-        matchesDiagonal1 >= MATCHES_TO_WIN ||
-        matchesDiagonal2 >= MATCHES_TO_WIN) {
+    if (matchesHoriz >= 4 ||
+        matchesVert >= 4 ||
+        matchesDiagonal1 >= 4 ||
+        matchesDiagonal2 >= 4) {
       gameOver = true
     }
   }
