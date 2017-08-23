@@ -16,6 +16,7 @@
     "debug": "gulp build-dev && node index.js",
     "build": "gulp build",
     "build-dev": "gulp build-dev",
+    "watch": "gulp watch",
     "test": "gulp build && mocha && yarn compare-counts"
   },
   "description": "Code golf in JS",

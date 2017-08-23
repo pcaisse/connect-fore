@@ -4,6 +4,10 @@ var uglify = require('gulp-uglify')
 var file = 'static/game.js'
 var dist = 'static/dist'
 
+gulp.task('watch', function() {
+  gulp.watch(file, ['build-dev'])
+})
+
 gulp.task('build-dev', function() {
   return gulp.src(file)
     .pipe(uglify({
