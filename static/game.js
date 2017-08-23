@@ -1,12 +1,11 @@
-var playerTurn = 0
-var gridString = Array(43).join()
-var gameOver = 0
+playerTurn = gameOver = 0
+gridString = Array(43).join()
 
 document.body.children[0].onclick = function(e) {
-  var colIndex = e.target.cellIndex
+  colIndex = e.target.cellIndex
   if (!gameOver && colIndex + 1) {
     // Drop into column
-    for (var index = 35 + colIndex; index >= 0 && gridString[index] != ","; index -= 7);
+    for (index = 35 + colIndex; index >= 0 && gridString[index] != ","; index -= 7);
     if (index >= 0) {
       // Keep track of latest move
       gridString = gridString.slice(0, index) + playerTurn + gridString.slice(index + 1);
