@@ -1,6 +1,6 @@
 var playerTurn = 0
 var grid = [[], [], [], [], [], []]
-var gameOver = false
+var gameOver = 0
 
 function updateMatches(value, matches) {
   return value == playerTurn ? (matches || 0) + 1 : 0
@@ -39,13 +39,9 @@ document.body.children[0].onclick = function(e) {
         grid[i][colIndex - rowIndex + i], matchesDiagonal2)
     }
     // Check win
-    if (Math.max(matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2) > 3) {
-      gameOver = true
-    }
+    Math.max(matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2) > 3 && gameOver++
   }
-  if (gameOver) {
-    console.log('WINNER!')
-  }
+  gameOver && console.log('WINNER!')
   // Update board
   this.rows[rowIndex].cells[colIndex].style.background =
     playerTurn ? "red" : "#ff0"
