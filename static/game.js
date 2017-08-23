@@ -8,13 +8,8 @@ document.body.children[0].onclick = function(e) {
     return
   }
   // Drop into column
-  var i, rowIndex
-  for (i = 5; i >= 0; i--) {
-    if (grid[i][colIndex] == void 0) {
-      rowIndex = i
-      break
-    }
-  }
+  rowIndex = 6
+  while (grid[--rowIndex] && grid[rowIndex][colIndex] + 1);
   if (rowIndex == void 0) {
     return
   }
