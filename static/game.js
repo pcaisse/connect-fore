@@ -39,10 +39,7 @@ document.body.children[0].onclick = function(e) {
         grid[i][colIndex - rowIndex + i], matchesDiagonal2)
     }
     // Check win
-    if (matchesHoriz >= 4 ||
-        matchesVert >= 4 ||
-        matchesDiagonal1 >= 4 ||
-        matchesDiagonal2 >= 4) {
+    if (Math.max(matchesHoriz, matchesVert, matchesDiagonal1, matchesDiagonal2) >= 4) {
       gameOver = true
     }
   }
