@@ -53,5 +53,5 @@ document.body.children[0].onclick = function(e) {
   this.rows[rowIndex].cells[colIndex].style.background =
     playerTurn ? "red" : "#ff0"
   // Switch turns
-  playerTurn = playerTurn ? 0 : 1
+  playerTurn = +!playerTurn
 }
