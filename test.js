@@ -9,6 +9,9 @@ var WINNER = "WINNER!"
 
 
 describe('ui tests', function() {
+  // Increase timeout to avoid false positive test failures
+  this.timeout(5000)
+
   var port = process.env.PORT || 3001
   var url = 'http://localhost:' + port
   var logValue
