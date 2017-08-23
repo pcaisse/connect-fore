@@ -3,24 +3,24 @@ var grid = [[], [], [], [], [], []]
 var gameOver = false
 
 function updateMatches(value, matches) {
-  return value === playerTurn ? (matches || 0) + 1 : 0
+  return value == playerTurn ? (matches || 0) + 1 : 0
 }
 
 var table = document.querySelector('table')
 table.addEventListener('click', function(e) {
   var colIndex = e.target.cellIndex
-  if (gameOver || typeof colIndex === "undefined") {
+  if (gameOver || typeof colIndex == "undefined") {
     return
   }
   // Drop into column
   var i, rowIndex
   for (i = 5; i >= 0; i--) {
-    if (typeof grid[i][colIndex] === "undefined") {
+    if (typeof grid[i][colIndex] == "undefined") {
       rowIndex = i
       break
     }
   }
-  if (typeof rowIndex === "undefined") {
+  if (typeof rowIndex == "undefined") {
     return
   }
   // Keep track of latest move
