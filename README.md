@@ -34,14 +34,17 @@ For development, please [install Yarn](https://yarnpkg.com/lang/en/docs/install/
 
 There are several commands (see `package.json`) which are useful in development:
 
-|Command                  |Description|
-|-------------------------|-----------|
-|`yarn test`              |Runs [tests](#tests)|
-|`yarn char-count`        |Returns the number of characters in `static/game.js`|
-|`yarn char-count-min`    |Minifies `static/game.js` and returns the number of characters in the minified version|
-|`yarn compare-counts`    |Compares the character count of `static/game.js` of the currently checked out commit to that of the previous commit|
-|`yarn start`             |Builds and runs server|
-|`yarn debug`             |Builds beautified version of JS for debugging and runs server|
+Command                  |Description
+-------------------------|---------------------------------------------------------------------------------------------
+`yarn test`              |Runs [tests](#tests)
+`yarn char-count`        |Returns the number of characters in `static/game.js`
+`yarn char-count-min`    |Minifies code and returns the number of characters in the minified version
+`yarn compare-counts`    |Compares character count between versions of `static/game.js`
+`yarn minify`            |Minifies `static/game.js`
+`yarn beautify`          |Beautifies `static/game.js` (makes it more readable)
+`yarn start`             |Builds and runs server
+`yarn debug`             |Builds beautified version of JS for debugging and runs server
+`yarn watch`             |Runs a dev build whenever the file is changed
 
 ## Tests
 
