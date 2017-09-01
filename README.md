@@ -6,7 +6,7 @@ http://connect-fore.herokuapp.com/
 
 ## Challenge
 
-Implement the game [Connect Four](https://en.wikipedia.org/wiki/Connect_Four) such that the source code of `game.js` is as short as possible without editing any other files.
+Implement the game [Connect Four](https://en.wikipedia.org/wiki/Connect_Four) such that the source code of [game.js](static/game.js) is as short as possible without editing any other files.
 
 ## Gameplay
 
