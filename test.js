@@ -439,5 +439,88 @@ describe('ui tests', function() {
         done()
       })
   })
+  
+  it('test that wrapping horizontally around board is not a win', function(done) {
+    // Testing the following board: (The 1s wrap around the board)
+    // -------
+    // -----11
+    // 11--222
+    new Nightmare()
+      .on('console', function(log, msg) {
+        logValue += msg
+      })
+      .goto(url)
+      .click('table tr:nth-child(1) td:nth-child(1)')
+      .click('table tr:nth-child(1) td:nth-child(7)')
+      .click('table tr:nth-child(1) td:nth-child(2)')
+      .click('table tr:nth-child(1) td:nth-child(6)')
+      .click('table tr:nth-child(1) td:nth-child(7)')
+      .click('table tr:nth-child(1) td:nth-child(5)')
+      .click('table tr:nth-child(1) td:nth-child(6)')
+      .wait(100)
+      .end()
+      .then(function(result) {
+        assert(logValue !== WINNER)
+        done()
+      })
+  })
+  
+  it('test that (positive slope) diagonally wrapping around board is not a win', function(done) {
+    // Testing the following board: (The 1s wrap around the board)
+    // -------
+    // --1----
+    // -12----
+    // 122---1
+    new Nightmare()
+      .on('console', function(log, msg) {
+        logValue += msg
+      })
+      .goto(url)
+      .click('table tr:nth-child(1) td:nth-child(1)')
+      .click('table tr:nth-child(1) td:nth-child(2)')
+      .click('table tr:nth-child(1) td:nth-child(2)')
+      .click('table tr:nth-child(1) td:nth-child(3)')
+      .click('table tr:nth-child(1) td:nth-child(7)')
+      .click('table tr:nth-child(1) td:nth-child(3)')
+      .click('table tr:nth-child(1) td:nth-child(3)')
+      .wait(100)
+      .end()
+      .then(function(result) {
+        assert(logValue !== WINNER)
+        done()
+      })
+  })
+  
+  it('test that (negative slope) diagonally wrapping around board is not a win', function(done) {
+    // Testing the following board: (The 1s wrap around the board)
+    // -------
+    // ------1
+    // ------2
+    // 1-----1
+    // 21----2
+    // 221---1
+    new Nightmare()
+      .on('console', function(log, msg) {
+        logValue += msg
+      })
+      .goto(url)
+      .click('table tr:nth-child(1) td:nth-child(3)')
+      .click('table tr:nth-child(1) td:nth-child(2)')
+      .click('table tr:nth-child(1) td:nth-child(2)')
+      .click('table tr:nth-child(1) td:nth-child(1)')
+      .click('table tr:nth-child(1) td:nth-child(7)')
+      .click('table tr:nth-child(1) td:nth-child(1)')
+      .click('table tr:nth-child(1) td:nth-child(1)')
+      .click('table tr:nth-child(1) td:nth-child(7)')
+      .click('table tr:nth-child(1) td:nth-child(7)')
+      .click('table tr:nth-child(1) td:nth-child(7)')
+      .click('table tr:nth-child(1) td:nth-child(7)')
+      .wait(100)
+      .end()
+      .then(function(result) {
+        assert(logValue !== WINNER)
+        done()
+      })
+  })
 
 })
