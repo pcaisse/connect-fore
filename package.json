@@ -2,8 +2,7 @@
   "name": "connect-fore",
   "version": "0.0.1",
   "engines": {
-    "node": "7.7.3",
-    "yarn": "0.21.3"
+    "node": ">=8.0.0"
   },
   "scripts": {
     "char-count": "wc -m static/game.js",
